@@ -27,7 +27,7 @@ INTERNET_CONN_LED = 12
 HUM_LED = 13
 HEATER_LED = 37
 
-thermostat_pin = 15
+thermostat_pin = 14
 led_brightness = 100
 
 GPIO.setmode(GPIO.BOARD)

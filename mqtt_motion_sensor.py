@@ -7,7 +7,6 @@ import argparse
 
 # ------------------- MAIN  CONFIGURATION ------------------- #
     
-XIAOMI_THERMOSTAT_MAC = "4c:65:a8:da:89:e9"
 MQTT_TOPIC = "ambient/andreaBedroom/motionSensor"
 MQTT_SERVER_ADDRESS = "192.168.123.16" # hostname or IP address
 MQTT_SERVER_PORT = 1883
@@ -130,8 +129,8 @@ while True:
       
       if not_signaled_state_transition and (datetime.now() - last_motion_detected).total_seconds() > TIME_MOTION_DEPRECATED_SEC:
         not_signaled_state_transition = False
-        client.publish("homeAssistant/motion/"+ MOSQUITO_CLIENT_NAME+"/motionValue", "0")
-        client.publish("homeAssistant/motion/"+ MOSQUITO_CLIENT_NAME+"/availability", "online")
+        client.publish(MQTT_TOPIC + "/motionValue", "0")
+        client.publish(MQTT_TOPIC + "/availability", "online")
        
        
       
